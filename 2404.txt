@@ -1,4 +1,3 @@
-//EDIT
 //add recordings
 add -r 102 "A Hard Day's Night" "Beatles" "George Martin" 1964
 add -r 103 "Beatles For Sale" "Beatles" "George Martin" 1964

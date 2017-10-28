@@ -16,11 +16,6 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include "songs.h"
-#include "recordings.h"
-#include "users.h"
-#include "tracks.h"
-
 #include <string>
 #include <vector>
 using namespace std;
@@ -50,13 +45,6 @@ const string DEV_endsWith = ".endsWith";
 const string DEV_startsWith = ".startsWith";
 const string DEV_toTitleCase = ".toTitleCase";
 
-const string AppCommands[] = {
-	CMD_ADD,
-	CMD_DELETE,
-	CMD_SHOW,
-	};
-const int NumberOfAppCommands = 3;
-
 const string UICommands[] = {
 	UICMD_QUIT, 
 	UICMD_LOG, 
@@ -64,6 +52,12 @@ const string UICommands[] = {
 	UICMD_READ
 	};
 const int NumberOfUICommands = 4;
+const string AppCommands[] = {
+	CMD_ADD,
+	CMD_DELETE,
+	CMD_SHOW,
+	};
+const int NumberOfAppCommands = 3;
 
 const string DevCommands[] = {
 	DEV_trim,
@@ -89,10 +83,6 @@ class Command
    string commandString; //command string;
    vector<string> tokens; //parsed command tokens
    void parse(string commandString); //parse the command string
-   Songs allSongs;
-   Users allUsers;
-   Recordings allRecordings;
-   Tracks allTracks;
 
 };
 

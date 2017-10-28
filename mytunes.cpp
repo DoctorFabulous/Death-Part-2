@@ -46,9 +46,7 @@ void MyTunes::executeCommand(Command cmd){
 	else if(cmd.isCommand(CMD_SHOW)) executeCMDSHOW(cmd);
 }
 
-//APP COMMANDS 
-//////////////
-//Add functionality to these app commands
+//APP COMMANDS
 void MyTunes::executeCMDADD(Command cmd){
 	view.printOutput("EXECUTING: " + cmd.getCommandString());
 	//view.printOutput("SAVE ME");
