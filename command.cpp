@@ -24,10 +24,12 @@ using namespace std;
 
 Command::Command(string cmdStr)
 {
+	/*
 	allSongs = *(new Songs());
 	allUsers = *(new Users());
 	allRecordings = *(new Recordings());
 	allTracks = *(new Tracks());
+	*/
 	commandString = cmdStr;
 	parse(commandString);
 }
@@ -143,6 +145,7 @@ void Command::parse(string cmdStr)
    
    // INTREPRETING THE COMAND TOKEN BY TOKEN
    // MAYBE PUT IN AN EXECUTE COMMAND METHOD THAT IS CALLED HERE INSTEAD (PUT ALL THIS IN THERE THEN)   
+   /*
    int holderInt;
    int holderInt2;
    int holderInt3;
@@ -168,7 +171,7 @@ void Command::parse(string cmdStr)
 		   holder >> holderInt;
 		   //Song* s = new Song(tokens[3], tokens[4], holderInt);
 		   cout << "ADDING A NEW SONG." << endl;
-		   /*Song x =*/ allSongs.add(*(new Song(tokens[3], tokens[4], holderInt)));
+		   //Song x = allSongs.add(*(new Song(tokens[3], tokens[4], holderInt)));
 		   //cout << tokens[2] << "SAVE ME PLEASE" << endl;
 		   //cout << x.toString() << endl;
 	   }
@@ -240,6 +243,7 @@ void Command::parse(string cmdStr)
 	   {
 		   cout << "Invalid command." << endl;
 	   }
-   }  
+   }
+   */
 }
 

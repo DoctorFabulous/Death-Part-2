@@ -30,12 +30,16 @@ class MyTunes
     MyTunes();
     void run();
     void executeCommand(Command cmd);	
-	Songs* allSongs;
+	//Songs* allSongs;
 	
   private:
     UI view;
     void executeCMDADD(Command cmd);
     void executeCMDDELETE(Command cmd);
     void executeCMDSHOW(Command cmd);
+	Songs allSongs;
+	Users allUsers;
+	Recordings allRecordings;
+	Tracks allTracks;
 };
 #endif

@@ -89,11 +89,12 @@ class Command
    string commandString; //command string;
    vector<string> tokens; //parsed command tokens
    void parse(string commandString); //parse the command string
+   /*
    Songs allSongs;
    Users allUsers;
    Recordings allRecordings;
    Tracks allTracks;
-
+	*/
 };
 
 #endif
