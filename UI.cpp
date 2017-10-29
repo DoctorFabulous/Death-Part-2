@@ -46,7 +46,7 @@ void UI::run(){
          /*do nothing*/
          if(logging != OFF) logs.push_back(StrUtil::trim(input));
       }
-	  else { //Not: Empty, quit, or comment
+	  else { //None of: Empty, quit, or comment
 		  Command cmd = Command(input);
           if((logging == COMMAND) || (logging == BOTH)) 
               logs.push_back(cmd.getCommandString());	  
@@ -54,6 +54,7 @@ void UI::run(){
 		  else if(cmd.isAppCommand()) owner->executeCommand(cmd);
 		  else if(cmd.isDevCommand()) executeDevCommand(cmd);
 		  else printError("UNRECOGNIZED COMMAND");
+		  //////How will we add a log of the output? Perhaps a chain of returning strings?
 	  }
       
     }

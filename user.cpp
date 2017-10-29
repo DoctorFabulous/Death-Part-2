@@ -44,6 +44,16 @@ Playlist* User::getPlaylist(const string& aPlaylistName)
 	return NULL;
 }
 
+string* User::getPlaylistNames()
+{
+	string* output;
+	(*output) = "";
+	for (vector<Playlist*>::iterator it = playlistsU.begin(); it != playlistsU.end(); ++it) {
+		(*output).append((*it)-> toString());
+		(*output).append("\n");
+	}
+	return output;
+}
 string User::toString() const
 {
 	return "User: " + name + " with ID: " + userID;

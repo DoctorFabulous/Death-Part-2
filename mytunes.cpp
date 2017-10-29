@@ -28,18 +28,12 @@ MyTunes::MyTunes():view(this)
 	allUsers = *(new Users());
 	allRecordings = *(new Recordings());
 	allTracks = *(new Tracks());
-	/*view.printOutput("Creating mytunes.");
-	allSongs = new Songs();
-	Users* allUsers = new Users();
-	Recordings*	allRecordings = new Recordings();
-	Tracks* allTracks = new Tracks();*/
 }
 
 void MyTunes::run()
 {
 	//start user interface
 	view.run(); 
-
 }
 void MyTunes::executeCommand(Command cmd){
     //execute application (non UI shell) commands
@@ -158,27 +152,49 @@ void MyTunes::executeCMDSHOW(Command cmd){
 	
 	if (cmd.getToken(1).compare("-r") == 0)
 	{
-	   
+	   allRecordings.printOn(cout);
 	}
 	else if (cmd.getToken(1).compare("-s") == 0)
 	{
-	   
+	   allSongs.printOn(cout);
 	}
 	else if (cmd.getToken(1).compare("-u") == 0)
 	{
-	    
+		if (cmd.getToken(2).compare("") == 0) //If the second token equal to "", aka it is empty...
+		//The user just wants to see all users
+		{
+			allUsers.printOn(cout);
+		}
+		else { //The user wants to see something about a specific user
+			if (cmd.getToken(3).compare("-p") == 0)
+			{
+				User* foundUser = allUsers.findByID(cmd.getToken(2));
+				if (foundUser != NULL)
+				{
+					cout << "Displaying playlists of user: " << (*foundUser).getID();
+					cout << "  " << (*foundUser).getPlaylistNames() << endl;
+				}
+				else {
+					cout << "Invalid command -- could not find user to display playlists" << endl;
+				}
+			}
+			else
+			{
+				cout << "Invalid command. What did you want to see in that user's profile? Type -p for playlists" << endl;
+			}
+		}
 	}
 	else if (cmd.getToken(1).compare("-t") == 0)
 	{
- 	   
+ 	   allTracks.printOn(cout);
 	}
 	else if (cmd.getToken(1).compare("-p") == 0)
 	{
-	    
+	    allUsers.printAllPlaylists(cout);
 	}
 	else if (cmd.getToken(1).compare("-l") == 0)
 	{
- 		
+		//What is this?
 	}
 	else
 	{

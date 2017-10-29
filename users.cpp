@@ -80,6 +80,17 @@ void Users::printOn(ostream& out) const
 	}
 }
 
+void Users::printAllPlaylists(ostream& out) const
+{
+	cout << "ALL USER PLAYLISTS:" << endl;
+	for (vector<User*>::size_type i = 0; i < collection.size(); i++)
+	{
+		cout << (*collection[i]).toString() << endl; //Print user's name
+		cout << "  Playlists:" << endl; //introduce a playlist will be printed
+		cout << "  " << (*collection[i]).getPlaylistNames() << endl; //Print all playlists of that user
+	}
+}
+
 ostream& operator<<(ostream& out, const Users& users)
 {
 	users.printOn(out);

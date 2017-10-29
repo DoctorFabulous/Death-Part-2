@@ -15,6 +15,7 @@ class User
 	string getID();
 	void addPlaylist(Playlist& aPlaylist);
 	Playlist* getPlaylist(const string& aPlaylistName);
+	string* getPlaylistNames();
 	string toString() const;
 	
 	private:

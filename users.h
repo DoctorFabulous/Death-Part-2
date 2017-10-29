@@ -20,6 +20,7 @@ class Users
 	void remove (User& aUser);
 	//void showOn(UI & aView) const; 
 	void printOn(ostream& out) const; 
+	void printAllPlaylists(ostream& out) const;
 	
 	private:
 	vector<User*> collection;
