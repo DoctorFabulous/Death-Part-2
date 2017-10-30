@@ -15,7 +15,8 @@ class Playlist
 	void addSong(Song& aSong);
 	void addTrack(Track& aTrack);
 	string getPlaylistName();
-	string* getContents();
+	string* getSongs();
+	string* getTracks();
 	string toString() const;
 	
 	private:

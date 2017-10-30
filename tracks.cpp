@@ -36,8 +36,6 @@ Track* Tracks::findBySongID(int anID)
 {
 	for (int i = 0; i < collection.size(); i++)
 	{
-		cout << (*collection[i]).toString() << endl;
-		
 		if (((*collection[i]).getSongID()) == anID)
 		{
 			return collection[i];

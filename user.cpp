@@ -24,12 +24,10 @@ string User::getID()
 void User::addPlaylist(Playlist& aPlaylist)
 {
 	playlistsU.push_back(&aPlaylist);
-	cout << endl << endl << endl << endl << endl;
 }
 
 Playlist* User::getPlaylist(const string& aPlaylistName)
 {
-	cout << "Starting to find a playlist" << endl;
 	for (int i = 0; i < playlistsU.size(); i++)
 	{
 		if ((playlistsU[i]->getPlaylistName()).compare(aPlaylistName) == 0)
@@ -37,15 +35,7 @@ Playlist* User::getPlaylist(const string& aPlaylistName)
 			return playlistsU[i];
 		}
 	}
-	cout << "Done for loop" << endl;
-	/*
-	if (((*playlistsU.end()) -> getPlaylistName()).compare(aPlaylistName) == 0)
-	{
-		return *(playlistsU.end());
-	}
-	cout << "Done if" << endl;
-	*/
-	return NULL;
+		return NULL;
 }
 
 string* User::getPlaylistNames()
@@ -69,7 +59,7 @@ string* User::getPlaylistContents()
 	{
 		(*output).append((playlistsU[i])-> toString());
 		output->append("\n");
-		(*output).append(*(playlistsU[i])-> getContents());
+		(*output).append(*(playlistsU[i])-> getSongs());
 		output->append("\n");
 	}
 	return output;

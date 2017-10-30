@@ -24,9 +24,7 @@ void Playlist::addSong(Song& aSong)
 
 void Playlist::addTrack(Track& aTrack)
 {
-	cout << "Starting to add the track" << endl;
 	tracksInPlaylist.push_back(&aTrack);
-	cout << "Some garbage" << endl;
 }
 
 string Playlist::getPlaylistName()
@@ -34,15 +32,39 @@ string Playlist::getPlaylistName()
 	return playlistName;
 }
 
-string* Playlist::getContents()
+string* Playlist::getSongs()
 {
-	string* output;
+	string* output = new string("");
 	(*output) = "";
+	if (songsInPlaylist.size() == 0) {
+		(*output).append("There are no songs in that playlist");
+		(*output).append("\n");
+		return output;
+	}
 	for (int i = 0; i < songsInPlaylist.size(); i++)
 	{
 		(*output).append((songsInPlaylist[i])->toString());
 		(*output).append("\n");
 	}
+	return output;
+}
+
+string* Playlist::getTracks()
+{
+	string* output = new string("");
+	(*output) = "";
+	if (tracksInPlaylist.size() == 0) {
+		(*output).append("There are no tracks in that playlist");
+		(*output).append("\n");
+		return output;
+	}
+	for (int i = 0; i < songsInPlaylist.size(); i++)
+	{
+		cout << "In loop at index " << i << endl;
+		(*output).append((tracksInPlaylist[i])->toString());
+		(*output).append("\n");
+	}
+	cout << (*output);
 	return output;
 }
 

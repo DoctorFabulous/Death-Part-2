@@ -99,19 +99,20 @@ void MyTunes::executeCMDADD(Command cmd){
 	{
 		stringstream holder(cmd.getToken(4));
 		holder >> holderInt;
-		User* userP = allUsers.findByID(cmd.getToken(2));
-		cout << "0" << endl;
+		
+		((*allUsers.findByID(cmd.getToken(2))).getPlaylist(cmd.getToken(3)))->addTrack(*allTracks.findBySongID(holderInt));
+		//User* userP = allUsers.findByID(cmd.getToken(2));
+		//cout << " 3" << endl;
+		/*
 		Playlist* playlistP = (*userP).getPlaylist(cmd.getToken(3));
-		cout << "1" << endl;
+		cout << " 4" << endl;
 		Track trackP = *(allTracks.findBySongID(holderInt));
-		cout << "2" << endl;
+		cout << " 5" << endl;
 		(*playlistP).addTrack(trackP);
-		cout << "3" << endl;
-		cout << (*playlistP)
-		//
-		cout << (*userP).toString() << endl;
-		//(*(*allUsers.findByID(cmd.getToken(2))).getPlaylist(cmd.getToken(3))).addTrack(*allTracks.findBySongID(holderInt)); //Is there a problem with the dereferencing? (*s)
-		//work on the above
+		cout << " 6" << endl;
+		*/
+		
+		cout << "The playlist now has the following contents: " << endl << *(((*allUsers.findByID(cmd.getToken(2))).getPlaylist(cmd.getToken(3)))->getTracks());
 	}
 	else
 	{
