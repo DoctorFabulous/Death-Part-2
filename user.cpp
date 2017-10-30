@@ -45,11 +45,9 @@ string* User::getPlaylistNames()
 	for (int i = 0; i < playlistsU.size(); i++)
 	{
 		(*output).append(playlistsU[i]->toString());
-		(*output).append("\n");
 	}
 	if (!(*output).compare("")) {
 		(*output).append("No playlists");
-		(*output).append("\n");
 	}
 	return output;
 }
@@ -57,7 +55,7 @@ string* User::getPlaylistNames()
 string* User::getPlaylistContents()
 {
 	
-	string* output;
+	string* output = new string("");
 	(*output) = "";
 	for (int i = 0; i < playlistsU.size(); i++)
 	{

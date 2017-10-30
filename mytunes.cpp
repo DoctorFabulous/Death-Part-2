@@ -107,13 +107,9 @@ void MyTunes::executeCMDADD(Command cmd){
 void MyTunes::executeCMDDELETE(Command cmd){
 	view.printOutput("EXECUTING: " + cmd.getCommandString());
 	
-	int holderInt;
-	int holderInt2;
-	int holderInt3;
-	
 	if (cmd.getToken(1).compare("-r") == 0)
 	{
-	   
+	   //
 	}
 	else if (cmd.getToken(1).compare("-s") == 0)
 	{
@@ -167,15 +163,16 @@ void MyTunes::executeCMDSHOW(Command cmd){
 					if (cmd.getToken(4).compare("") == 0) //If they only want the playlist names
 					{
 						cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
-						cout << "  " << (*foundUser).getPlaylistNames() << endl;
+						cout << (*(*foundUser).getPlaylistNames()) << endl;
 					}
-					else if (cmd.getToken(4).compare("-s") == 0) //They want to see the songs in the playlist
+					else if (cmd.getToken(4).compare("-s") == 0) //They want to see the songs in the playlists
 					{
 						//Need to go through all playlists and print their songs
-						cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
-						cout << (*foundUser).getPlaylistContents() << endl;
+						cout << "Displaying contents of all playlists of user: " << (*foundUser).getID() << endl;
+						cout << (*(*foundUser).getPlaylistContents()) << endl;
 					}
-					else 
+					//else if they specified a playlist to see the songs in
+					else
 					{
 						cout << "Invalid command. What about the user's playlist did you want to see? Type show -u <userID> -p -s for songs" << endl;
 					}
@@ -194,10 +191,6 @@ void MyTunes::executeCMDSHOW(Command cmd){
 	else if (cmd.getToken(1).compare("-p") == 0)
 	{
 	    allUsers.printAllPlaylists(cout);
-	}
-	else if (cmd.getToken(1).compare("-l") == 0)
-	{
-		//What is this?
 	}
 	else
 	{

@@ -75,7 +75,7 @@ void Users::printAllPlaylists(ostream& out) const
 	{
 		cout << (*(collection[i])).toString() << endl; //Print user's name
 		cout << "Playlists:" << endl; //introduce a playlist will be printed
-		cout << (*(*(collection[i])).getPlaylistNames()) << endl; //Print all playlists of that user
+		cout << (*(*(collection[i])).getPlaylistNames()) << endl << endl; //Print all playlists of that user
 	}
 }
 
