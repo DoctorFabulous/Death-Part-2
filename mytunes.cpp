@@ -101,18 +101,6 @@ void MyTunes::executeCMDADD(Command cmd){
 		holder >> holderInt;
 		
 		((*allUsers.findByID(cmd.getToken(2))).getPlaylist(cmd.getToken(3)))->addTrack(*allTracks.findBySongID(holderInt));
-		//User* userP = allUsers.findByID(cmd.getToken(2));
-		//cout << " 3" << endl;
-		/*
-		Playlist* playlistP = (*userP).getPlaylist(cmd.getToken(3));
-		cout << " 4" << endl;
-		Track trackP = *(allTracks.findBySongID(holderInt));
-		cout << " 5" << endl;
-		(*playlistP).addTrack(trackP);
-		cout << " 6" << endl;
-		*/
-		
-		cout << "The playlist now has the following contents: " << endl << *(((*allUsers.findByID(cmd.getToken(2))).getPlaylist(cmd.getToken(3)))->getTracks());
 	}
 	else
 	{
@@ -173,34 +161,33 @@ void MyTunes::executeCMDSHOW(Command cmd){
 		{
 			allUsers.printOn(cout);
 		}
-		
-		User* foundUser = allUsers.findByID(cmd.getToken(2));
-		if(foundUser != NULL) //The user wants to see a specific user's playlist names
-		{
-			if (cmd.getToken(3).compare("-p") == 0)
-			{
-				if (cmd.getToken(4).compare("") == 0) //If they only want the playlist names
-				{
-					cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
-					cout << "  " << (*foundUser).getPlaylistNames() << endl;
-				}
-				else if (cmd.getToken(4).compare("-s") == 0) //They want to see the songs in the playlist
-				{
-					//Need to go through all playlists and print their songs
-					cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
-					cout << (*foundUser).getPlaylistContents() << endl;
-				}
-				else {
-					cout << "Invalid command. What about the user's playlist did you want to see? Type show -u <userID> -p -s for songs" << endl;
-				}
-			}
-			else
-			{
-				cout << "Invalid command. What did you want to see in that user's profile? Type -p for playlists" << endl;
-			}
-		}
 		else {
-			cout << "Invalid command -- could not find user to display playlists" << endl;
+			User* foundUser = allUsers.findByID(cmd.getToken(2));
+			if(foundUser != NULL) //The user wants to see a specific user's playlist names
+			{
+				if (cmd.getToken(3).compare("-p") == 0)
+				{
+					if (cmd.getToken(4).compare("") == 0) //If they only want the playlist names
+					{
+						cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
+						cout << "  " << (*foundUser).getPlaylistNames() << endl;
+					}
+					else if (cmd.getToken(4).compare("-s") == 0) //They want to see the songs in the playlist
+					{
+						//Need to go through all playlists and print their songs
+						cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
+						cout << (*foundUser).getPlaylistContents() << endl;
+					}
+					else 
+					{
+						cout << "Invalid command. What about the user's playlist did you want to see? Type show -u <userID> -p -s for songs" << endl;
+					}
+				}
+				else
+				{
+					cout << "Invalid command. What did you want to see in that user's profile? Type -p for playlists" << endl;
+				}
+			}
 		}
 	}
 	else if (cmd.getToken(1).compare("-t") == 0)

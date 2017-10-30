@@ -53,14 +53,15 @@ string* Playlist::getTracks()
 {
 	string* output = new string("");
 	(*output) = "";
+	cout << endl << endl << tracksInPlaylist.size() << endl;
 	if (tracksInPlaylist.size() == 0) {
 		(*output).append("There are no tracks in that playlist");
 		(*output).append("\n");
 		return output;
 	}
-	for (int i = 0; i < songsInPlaylist.size(); i++)
+	
+	for (int i = 0; i < tracksInPlaylist.size(); i++)
 	{
-		cout << "In loop at index " << i << endl;
 		(*output).append((tracksInPlaylist[i])->toString());
 		(*output).append("\n");
 	}
