@@ -83,16 +83,6 @@ class Command
    string commandString; //command string;
    vector<string> tokens; //parsed command tokens
    void parse(string commandString); //parse the command string
-<<<<<<< HEAD
-   /*
-   Songs allSongs;
-   Users allUsers;
-   Recordings allRecordings;
-   Tracks allTracks;
-	*/
-=======
-
->>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 };
 
 #endif

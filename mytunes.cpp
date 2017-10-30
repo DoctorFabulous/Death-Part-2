@@ -43,11 +43,7 @@ void MyTunes::executeCommand(Command cmd){
 	else if(cmd.isCommand(CMD_SHOW)) executeCMDSHOW(cmd);
 }
 
-<<<<<<< HEAD
-//APP COMMANDS 
-=======
 //APP COMMANDS
->>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 void MyTunes::executeCMDADD(Command cmd){
 	view.printOutput("EXECUTING: " + cmd.getCommandString());
 	

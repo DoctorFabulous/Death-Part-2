@@ -33,19 +33,6 @@ Tracks allTracks = *(new Tracks());
 
 Command::Command(string cmdStr)
 {
-<<<<<<< HEAD
-	/*
-	allSongs = *(new Songs());
-	allUsers = *(new Users());
-	allRecordings = *(new Recordings());
-	allTracks = *(new Tracks());
-	*/
-=======
-	//allSongs = *(new Songs());
-	//allUsers = *(new Users());
-	//allRecordings = *(new Recordings());
-	//allTracks = *(new Tracks());
->>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 	commandString = cmdStr;
 	parse(commandString);
 }

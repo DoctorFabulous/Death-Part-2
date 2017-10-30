@@ -16,6 +16,12 @@
 #ifndef MYTUNES_H
 #define MYTUNES_H
 #include <sstream>
+#include "str_util.h"
+#include "command.h"
+#include "songs.h"
+#include "recordings.h"
+#include "users.h"
+#include "tracks.h"
 using namespace std;
 #include "UI.h"
 
@@ -29,11 +35,8 @@ class MyTunes
   public:
     MyTunes();
     void run();
-    void executeCommand(Command cmd);	
-<<<<<<< HEAD
+    void executeCommand(Command cmd);
 	//Songs* allSongs;
-=======
->>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 	
   private:
     UI view;

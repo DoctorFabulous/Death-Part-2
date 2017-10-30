@@ -46,11 +46,7 @@ void UI::run(){
          /*do nothing*/
          if(logging != OFF) logs.push_back(StrUtil::trim(input));
       }
-<<<<<<< HEAD
 	  else { //None of: Empty, quit, or comment
-=======
-	  else {
->>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 		  Command cmd = Command(input);
           if((logging == COMMAND) || (logging == BOTH)) 
               logs.push_back(cmd.getCommandString());		  
