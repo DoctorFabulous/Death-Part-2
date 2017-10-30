@@ -16,7 +16,7 @@ Track::Track(const int anAlbumID, const int aSongID, const int aTrackNumber)
 
 Track::~Track()
 {
-	cout << "Track # " << this->trackNumber << " deleted." << endl;
+	cout << "Track: # " << this->trackNumber << " deleted." << endl;
 }
 
 int Track::getTrackNumber()

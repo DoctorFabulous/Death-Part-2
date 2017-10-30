@@ -26,11 +26,6 @@ using namespace std;
 #include "users.h"
 #include "tracks.h"
 
-Songs allSongs = *(new Songs());
-Users allUsers = *(new Users());
-Recordings allRecordings = *(new Recordings());
-Tracks allTracks = *(new Tracks());
-
 Command::Command(string cmdStr)
 {
 	commandString = cmdStr;

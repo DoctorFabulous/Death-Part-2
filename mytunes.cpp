@@ -67,11 +67,8 @@ void MyTunes::executeCMDADD(Command cmd){
 		// Add a song
 		stringstream holder(cmd.getToken(2));
 		holder >> holderInt;
-		//Song* s = new Song(cmd.getToken(3), cmd.getToken(4), holderInt);
 		cout << "ADDING A NEW SONG." << endl;
-		/*Song x =*/ allSongs.add(*(new Song(cmd.getToken(3), cmd.getToken(4), holderInt)));
-		//cout << cmd.getToken(2) << "SAVE ME PLEASE" << endl;
-		//cout << x.toString() << endl;
+		allSongs.add(*(new Song(cmd.getToken(3), cmd.getToken(4), holderInt)));
 	}
 	else if ((cmd.getToken(1)).compare("-u") == 0)
 	{

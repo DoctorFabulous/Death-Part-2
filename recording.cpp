@@ -3,6 +3,7 @@
 using namespace std;
 
 #include "recording.h"
+#include "str_util.h"
 
 Recording::Recording(const string& aTitle, const string& anArtist, const string& aProducer, const int aYear , const int anID)
 {
@@ -26,7 +27,7 @@ int Recording::getRecordingID()
 
 string Recording::toString() const 
 {
-	return "Recording: " + title + " with id " + to_string(recordingID) + " written by " + artist + " in " + to_string(year) + " & produced by " + producer;
+	return "Recording: '" + StrUtil::toTitleCase(title) + "' with id " + to_string(recordingID) + " written by " + artist + " in " + to_string(year) + " & produced by " + producer;
 }
 
 ostream& operator<<(ostream& out, const Recording& aRecording)
