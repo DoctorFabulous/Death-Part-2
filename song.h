@@ -20,6 +20,6 @@ class Song {
 	int id;
 };
 
-ostream & operator<<(ostream & out, const Song & aSong);
+ostream& operator<<(ostream & out, const Song & aSong);
 
 #endif

@@ -146,10 +146,6 @@ void MyTunes::executeCMDDELETE(Command cmd){
 void MyTunes::executeCMDSHOW(Command cmd){
 	view.printOutput("EXECUTING: " + cmd.getCommandString());
 	
-	int holderInt;
-	int holderInt2;
-	int holderInt3;
-	
 	if (cmd.getToken(1).compare("-r") == 0)
 	{
 	   allRecordings.printOn(cout);
@@ -158,30 +154,41 @@ void MyTunes::executeCMDSHOW(Command cmd){
 	{
 	   allSongs.printOn(cout);
 	}
-	else if (cmd.getToken(1).compare("-u") == 0)
+	else if (cmd.getToken(1).compare("-u") == 0) //1. show -u //2. show -u <userID> -p //3. show -u <userID> -p -s
 	{
 		if (cmd.getToken(2).compare("") == 0) //If the second token equal to "", aka it is empty...
 		//The user just wants to see all users
 		{
 			allUsers.printOn(cout);
 		}
-		else { //The user wants to see something about a specific user
+		
+		User* foundUser = allUsers.findByID(cmd.getToken(2));
+		if(foundUser != NULL) //The user wants to see a specific user's playlist names
+		{
 			if (cmd.getToken(3).compare("-p") == 0)
 			{
-				User* foundUser = allUsers.findByID(cmd.getToken(2));
-				if (foundUser != NULL)
+				if (cmd.getToken(4).compare("") == 0) //If they only want the playlist names
 				{
-					cout << "Displaying playlists of user: " << (*foundUser).getID();
+					cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
 					cout << "  " << (*foundUser).getPlaylistNames() << endl;
 				}
+				else if (cmd.getToken(4).compare("-s") == 0) //They want to see the songs in the playlist
+				{
+					//Need to go through all playlists and print their songs
+					cout << "Displaying playlists of user: " << (*foundUser).getID() << endl;
+					cout << (*foundUser).getPlaylistContents() << endl;
+				}
 				else {
-					cout << "Invalid command -- could not find user to display playlists" << endl;
+					cout << "Invalid command. What about the user's playlist did you want to see? Type show -u <userID> -p -s for songs" << endl;
 				}
 			}
 			else
 			{
 				cout << "Invalid command. What did you want to see in that user's profile? Type -p for playlists" << endl;
 			}
+		}
+		else {
+			cout << "Invalid command -- could not find user to display playlists" << endl;
 		}
 	}
 	else if (cmd.getToken(1).compare("-t") == 0)
@@ -201,9 +208,3 @@ void MyTunes::executeCMDSHOW(Command cmd){
 		cout << "Invalid command." << endl;
 	}
 }
-
-//Show Commands
-
-
-
-

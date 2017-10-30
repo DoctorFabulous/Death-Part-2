@@ -17,6 +17,7 @@ class User
 	Playlist* getPlaylist(const string& aPlaylistName);
 	string* getPlaylistNames();
 	string toString() const;
+	string* getPlaylistContents();
 	
 	private:
 	string name;

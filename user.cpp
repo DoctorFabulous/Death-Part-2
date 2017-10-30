@@ -48,12 +48,30 @@ string* User::getPlaylistNames()
 {
 	string* output;
 	(*output) = "";
-	for (vector<Playlist*>::iterator it = playlistsU.begin(); it != playlistsU.end(); ++it) {
-		(*output).append((*it)-> toString());
+	for (int i = 0; i < playlistsU.size(); i++)
+	{
+		(*output).append(playlistsU[i]->toString());
 		(*output).append("\n");
 	}
 	return output;
 }
+
+string* User::getPlaylistContents()
+{
+	
+	string* output;
+	(*output) = "";
+	for (int i = 0; i < playlistsU.size(); i++)
+	{
+		(*output).append((playlistsU[i])-> toString());
+		output->append("\n");
+		(*output).append(*(playlistsU[i])-> getContents());
+		output->append("\n");
+	}
+	return output;
+	
+}
+
 string User::toString() const
 {
 	return "User: " + name + " with ID: " + userID;

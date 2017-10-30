@@ -21,6 +21,7 @@ class Users
 	//void showOn(UI & aView) const; 
 	void printOn(ostream& out) const; 
 	void printAllPlaylists(ostream& out) const;
+	int getSize();
 	
 	private:
 	vector<User*> collection;

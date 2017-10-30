@@ -91,6 +91,11 @@ void Users::printAllPlaylists(ostream& out) const
 	}
 }
 
+int Users::getSize()
+{
+	return collection.size();
+}
+
 ostream& operator<<(ostream& out, const Users& users)
 {
 	users.printOn(out);

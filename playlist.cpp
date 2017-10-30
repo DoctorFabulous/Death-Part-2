@@ -31,6 +31,18 @@ string Playlist::getPlaylistName()
 	return playlistName;
 }
 
+string* Playlist::getContents()
+{
+	string* output;
+	(*output) = "";
+	for (int i = 0; i < songsInPlaylist.size(); i++)
+	{
+		(*output).append((songsInPlaylist[i])->toString());
+		(*output).append("\n");
+	}
+	return output;
+}
+
 string Playlist::toString() const
 {
 	return "Playlist: " + playlistName;
