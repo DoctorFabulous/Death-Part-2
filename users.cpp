@@ -40,8 +40,7 @@ User* Users::findByID(string anID)
 			return *it;
 		}
 	}
-	
-	return NULL; 
+	return NULL;
 }
 
 void Users::add(User& aUser)

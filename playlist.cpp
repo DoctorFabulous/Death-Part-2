@@ -8,6 +8,7 @@ using namespace std;
 Playlist::Playlist(const string& aPlaylistName)
 {
 	playlistName = aPlaylistName;
+	
 	cout << "Playlist: " << aPlaylistName << " created." << endl;
 }
 
@@ -23,7 +24,9 @@ void Playlist::addSong(Song& aSong)
 
 void Playlist::addTrack(Track& aTrack)
 {
+	cout << "Starting to add the track" << endl;
 	tracksInPlaylist.push_back(&aTrack);
+	cout << "Some garbage" << endl;
 }
 
 string Playlist::getPlaylistName()

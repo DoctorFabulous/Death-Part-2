@@ -93,13 +93,24 @@ void MyTunes::executeCMDADD(Command cmd){
 	else if (cmd.getToken(1).compare("-p") == 0)
 	{
 		//Playlist* p = new Playlist(cmd.getToken(2));
-		(*allUsers.findByID(cmd.getToken(2))).addPlaylist(*(new Playlist(cmd.getToken(2))));
+		(*allUsers.findByID(cmd.getToken(2))).addPlaylist(*(new Playlist(cmd.getToken(3))));
 	}
 	else if (cmd.getToken(1).compare("-l") == 0)
 	{
 		stringstream holder(cmd.getToken(4));
 		holder >> holderInt;
-		(*(*allUsers.findByID(cmd.getToken(2))).getPlaylist(cmd.getToken(3))).addTrack(*allTracks.findBySongID(holderInt)); //Is there a problem with the dereferencing? (*s)
+		User* userP = allUsers.findByID(cmd.getToken(2));
+		cout << "0" << endl;
+		Playlist* playlistP = (*userP).getPlaylist(cmd.getToken(3));
+		cout << "1" << endl;
+		Track trackP = *(allTracks.findBySongID(holderInt));
+		cout << "2" << endl;
+		(*playlistP).addTrack(trackP);
+		cout << "3" << endl;
+		cout << (*playlistP)
+		//
+		cout << (*userP).toString() << endl;
+		//(*(*allUsers.findByID(cmd.getToken(2))).getPlaylist(cmd.getToken(3))).addTrack(*allTracks.findBySongID(holderInt)); //Is there a problem with the dereferencing? (*s)
 		//work on the above
 	}
 	else

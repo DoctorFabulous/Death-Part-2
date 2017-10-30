@@ -34,19 +34,15 @@ vector<Track*>::iterator Tracks::findPosition(Track& aTrack)
 
 Track* Tracks::findBySongID(int anID)
 {
-	for (vector<Track*>::iterator it = collection.begin(); it != collection.end(); ++it)
+	for (int i = 0; i < collection.size(); i++)
 	{
-		if ((*it) -> getTrackID() == anID)
+		cout << (*collection[i]).toString() << endl;
+		
+		if (((*collection[i]).getSongID()) == anID)
 		{
-			return *it;
+			return collection[i];
 		}
 	}
-	
-	if ((*collection.end())->getTrackID() == anID)
-	{
-		return *(collection.end());
-	}
-	
 	return NULL;
 }
 

@@ -22,12 +22,12 @@ vector<Song*>::iterator Songs::findPosition(Song & aSong){
 	return collection.end();
 }
 Song * Songs::findByID(int anID){
-	for (vector<Song*>::iterator it = collection.begin(); it != collection.end(); ++it)
-		if((*it) -> getID() == anID) return *it;
-	
-	if ((*collection.end())->getID() == anID)
+	for (int i = 0; i < collection.size(); i++)
 	{
-		return *(collection.end());
+		if((*collection[i]).getID() == anID) 
+		{
+			return collection[i];
+		}
 	}
 	
 	return NULL;
@@ -43,13 +43,6 @@ void Songs::remove(Song & aSong){
 		delete theSong; //free the memory of theSong
 	}
 }
-
-/*void Songs::showOn(UI & view) const {
-  view.printOutput("SONGS:");
-  for(int i=0; i<collection.size(); i++)
-       view.printOutput((*collection[i]).toString());	  
-}*/
-
 
 void Songs::printOn(ostream & out) const {
   cout << "SONGS:" << endl;

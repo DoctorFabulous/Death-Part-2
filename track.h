@@ -9,7 +9,8 @@ class Track
 	public: 
 	Track(const int anAlbumID, const int aSongID, const int aTrackNumber);
 	~Track(void);
-	int getTrackID();
+	int getTrackNumber();
+	int getSongID();
 	string toString() const;
 	
 	private:

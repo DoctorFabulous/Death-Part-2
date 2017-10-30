@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 
 #include "track.h"
@@ -18,14 +19,21 @@ Track::~Track()
 	cout << "Track # " << this->trackNumber << " deleted." << endl;
 }
 
-int Track::getTrackID()
+int Track::getTrackNumber()
 {
 	return trackNumber;
 }
 
+int Track::getSongID()
+{
+	return songID;
+}
+
 string Track::toString() const
 {
-	return "track aaa"; //"Track # " + trackNumber + " for song " + songID;
+	stringstream holder;
+	holder << "Track# " << trackNumber << " for song " << songID;
+	return holder.str();
 }
 
 ostream& operator<<(ostream& out, const Track& aTrack)
