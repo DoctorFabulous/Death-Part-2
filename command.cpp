@@ -217,7 +217,6 @@ void Command::parse(string cmdStr)
 	   {
 		   stringstream holder(tokens[4]);
 		   holder >> holderInt;
-		//work on the above
 		   (*(*allUsers.findByID(tokens[2])).getPlaylist(tokens[3])).addTrack(*allTracks.findBySongID(holderInt));
 	   }
 	   else
