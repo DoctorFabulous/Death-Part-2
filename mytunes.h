@@ -30,7 +30,10 @@ class MyTunes
     MyTunes();
     void run();
     void executeCommand(Command cmd);	
+<<<<<<< HEAD
 	//Songs* allSongs;
+=======
+>>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 	
   private:
     UI view;

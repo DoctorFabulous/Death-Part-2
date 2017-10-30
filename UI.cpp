@@ -40,16 +40,20 @@ void UI::run(){
 
   while (true) {
       promptForStr("CMD or " + UICMD_QUIT, input);
-	  if(input.compare(UICMD_QUIT) == 0) break; //If user entered quit, break
+	  if(input.compare(UICMD_QUIT) == 0) break;
 	  if(input.empty()) {/*do nothing*/}
-      else if(StrUtil::isComment(input)) { //If we entered a comment
+      else if(StrUtil::isComment(input)) {
          /*do nothing*/
          if(logging != OFF) logs.push_back(StrUtil::trim(input));
       }
+<<<<<<< HEAD
 	  else { //None of: Empty, quit, or comment
+=======
+	  else {
+>>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 		  Command cmd = Command(input);
           if((logging == COMMAND) || (logging == BOTH)) 
-              logs.push_back(cmd.getCommandString());	  
+              logs.push_back(cmd.getCommandString());		  
 		  if(cmd.isUICommand()) executeCommand(cmd);
 		  else if(cmd.isAppCommand()) owner->executeCommand(cmd);
 		  else if(cmd.isDevCommand()) executeDevCommand(cmd);
@@ -100,7 +104,7 @@ void UI::printError(string err)
 
 void UI::printOutput(string outStr)
 {
-  //public method that can be used by clients of UI too
+  //public method that can be used by clients of UI to
   //print to UI output
   //If logging is in progress the output will be written
   //to the log file as well.
@@ -161,7 +165,7 @@ void UI::executeUIREAD(Command cmd){
 }
 void UI::executeUILOG(Command cmd){
 /*
-	.log //log commands and output
+.log    //log commands and output
 	.log clear //clear the logs
 	.log start //begin logging
 	.log start_both //begin logging both commands and output

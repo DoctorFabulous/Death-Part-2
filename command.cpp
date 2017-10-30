@@ -21,15 +21,31 @@ using namespace std;
 
 #include "str_util.h"
 #include "command.h"
+#include "songs.h"
+#include "recordings.h"
+#include "users.h"
+#include "tracks.h"
+
+Songs allSongs = *(new Songs());
+Users allUsers = *(new Users());
+Recordings allRecordings = *(new Recordings());
+Tracks allTracks = *(new Tracks());
 
 Command::Command(string cmdStr)
 {
+<<<<<<< HEAD
 	/*
 	allSongs = *(new Songs());
 	allUsers = *(new Users());
 	allRecordings = *(new Recordings());
 	allTracks = *(new Tracks());
 	*/
+=======
+	//allSongs = *(new Songs());
+	//allUsers = *(new Users());
+	//allRecordings = *(new Recordings());
+	//allTracks = *(new Tracks());
+>>>>>>> 15828ec0dab7ec18862ce64051ccd1ad8cd5dac6
 	commandString = cmdStr;
 	parse(commandString);
 }
@@ -51,14 +67,14 @@ bool Command::isCommand(string aCommandName){
 	return getCommandName().compare(aCommandName) == 0;
 }
 
-bool Command::isAppCommand(){
-		for(int i=0; i<NumberOfAppCommands; i++)
-		if(getCommandName().compare(AppCommands[i]) == 0) return true;
-	return false;
-}
 bool Command::isUICommand(){
 	for(int i=0; i<NumberOfUICommands; i++)
 		if(getCommandName().compare(UICommands[i]) == 0) return true;
+	return false;
+}
+bool Command::isAppCommand(){
+		for(int i=0; i<NumberOfAppCommands; i++)
+		if(getCommandName().compare(AppCommands[i]) == 0) return true;
 	return false;
 }
 bool Command::isDevCommand(){
@@ -201,15 +217,15 @@ void Command::parse(string cmdStr)
 	   {
 		   stringstream holder(tokens[4]);
 		   holder >> holderInt;
-		   (*(*allUsers.findByID(tokens[2])).getPlaylist(tokens[3])).addTrack(*allTracks.findBySongID(holderInt)); //Is there a problem with the dereferencing? (*s)
 		//work on the above
+		   (*(*allUsers.findByID(tokens[2])).getPlaylist(tokens[3])).addTrack(*allTracks.findBySongID(holderInt));
 	   }
 	   else
 	   {
 		   cout << "Invalid command." << endl;
 	   }
    }
-   else if ((tokens[0]).compare("delete") == 0) // Are we trying to delete something ? ///Work on this
+   else if ((tokens[0]).compare("delete") == 0) // Are we trying to delete something ?
    {
 	   
    }
