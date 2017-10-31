@@ -1,7 +1,9 @@
 ====================================.
 ====================================
 MyTunes music library
-Version 0.1 (Alpha) Sept 2017
+Version 0.2 (Alpha) Oct 2017
+Students: David Gourevitch 101057702
+	  Beatrice Massala 1010---
 ====================================
 COMMANDS:
 

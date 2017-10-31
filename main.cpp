@@ -2,7 +2,10 @@
 /*                                                   */
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel                              */
-/*  Date:     21-SEP-2017                            */
+/*  Other Authors:                                   */
+/* 	David Gourevitch,101057702,                      */
+/*	Betty Masalla, 1010----- 					  	 */
+/*  Date:     31-OCT-2017                            */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */

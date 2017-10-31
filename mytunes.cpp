@@ -1,8 +1,11 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                   */
 /*  Program:  MyTunes Music Player                   */
-/*  Author:   Louis Nel                              */
-/*  Date:     21-SEP-2017                            */
+/*  Author:   Louis Nel,                             */
+/*  Other Authors:                                   */
+/* 	David Gourevitch,101057702,                      */
+/*	Betty Masalla, 1010----- 					  	 */
+/*  Date:     31-OCT-2017                            */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -107,9 +110,22 @@ void MyTunes::executeCMDADD(Command cmd){
 void MyTunes::executeCMDDELETE(Command cmd){
 	view.printOutput("EXECUTING: " + cmd.getCommandString());
 	
+	if (cmd.getToken(2).compare("") == 0)
+	{
+		cout << "What did you want to delete?" << endl;
+	}
 	if (cmd.getToken(1).compare("-r") == 0)
 	{
-	   //
+		int holderInt;
+		stringstream holder(cmd.getToken(2));
+		holder >> holderInt;
+	    Recording* foundRecording = allRecordings.findByID(holderInt);
+	    if ((*foundRecording) == NULL) {
+	 	   cout << "No recording found under that ID" << endl;
+	    }
+	    else {
+ 		   //Go through and delete from everything
+	   }
 	}
 	else if (cmd.getToken(1).compare("-s") == 0)
 	{

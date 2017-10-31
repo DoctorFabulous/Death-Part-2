@@ -34,17 +34,12 @@ vector<Recording*>::iterator Recordings::findPosition(Recording& aRecording)
 
 Recording* Recordings::findByID(int anID)
 {
-	for (vector<Recording*>::iterator it = collection.begin(); it != collection.end(); ++it)
+	for (int i = 0; i < collection.size(); i++)
 	{
-		if ((*it) -> getRecordingID() == anID)
+		if ((*collection[i]) -> getRecordingID() == anID)
 		{
 			return *it;
 		}
-	}
-	
-	if ((*collection.end()) -> getRecordingID() == anID)
-	{
-		return *collection.end();
 	}
 	
 	return NULL;
